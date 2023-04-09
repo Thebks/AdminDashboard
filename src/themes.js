@@ -1,6 +1,5 @@
-import { useContext, useState, useMemo, createContext } from "react";
+import { useState, useMemo, createContext } from "react";
 import { createTheme } from "@mui/material/styles";
-import Context from "@mui/base/TabsUnstyled/TabsContext";
 
 
 // colors design tokens
@@ -131,7 +130,7 @@ export const themeSettings = (mode) => {
     const colors = tokens(mode);
 
     return {
-        pallete: {
+        palette: {
             mode: mode,
             ...(mode === 'dark'
                 ? {
@@ -158,8 +157,8 @@ export const themeSettings = (mode) => {
                     },
                     neutral: {
                         dark: colors.grey[700],
-                        dark: colors.grey[500],
-                        dark: colors.grey[100],
+                        main: colors.grey[500],
+                        light: colors.grey[100],
                     },
                     background: {
                         default: "#fcfcfc",
