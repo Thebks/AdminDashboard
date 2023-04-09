@@ -3,6 +3,8 @@ import { ColorModeContext, useMode } from './themes';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Topbar from './scenes/global/Topbar';
+import Sidebar from "./scenes/global/Sidebar";
+import Dashboard from "./scenes/dashboard";
 
 // import './App.css';
 
@@ -17,6 +19,9 @@ const App = () => {
                 <div className="app">
                     <main className="content">
                         <Topbar />
+                        <Routes>
+                            <Route path="/" element={<Dashboard />} />
+                        </Routes>
                     </main>
                 </div>
             </ThemeProvider>
