@@ -34,9 +34,25 @@ const Sidebar = () => {
 
     return (
         <MyStyledBox>
+            {/* USER */}
+            {!isCollapsed && (
+                <Box mb="25px">
+                    <Box display="flex" justify-content="center" alignItems="center">
+                        <img alt="profile-logo" width="100px" height="100px" src={`../../assets/thebksUser.png`} style={{ cursor: "pointer", borderRadius: "50%" }} />
+                    </Box>
+                    <Box textAlign="center">
+                        <Typography varient="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>TheBks</Typography>
+                        <Typography varient="h5" color={colors.greenAccent[500]}>CEO</Typography>
+                    </Box>
+                </Box>
+            )}
 
+            {/* MENU ITEMS */}
         </MyStyledBox>
     )
 }
 
 export default Sidebar;
+
+
+// 1:04
