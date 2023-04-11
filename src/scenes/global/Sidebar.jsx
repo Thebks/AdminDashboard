@@ -6,6 +6,7 @@ import { Box, IconButton, Typography, useTheme } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { tokens } from '../../themes'
 import { styled } from '@mui/system';
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
 
 
 const Sidebar = () => {
@@ -15,7 +16,7 @@ const Sidebar = () => {
     const [selected, isSelected] = useState("Dashboard");
 
     const MyStyledBox = styled(Box)({
-        "$ .pro-sidebar-inner": {
+        "& .pro-sidebar-inner": {
             background: `${colors.primary[400]} !important`,
         },
         "& .pro-icon-wrapper": {
@@ -34,20 +35,53 @@ const Sidebar = () => {
 
     return (
         <MyStyledBox>
-            {/* USER */}
-            {!isCollapsed && (
-                <Box mb="25px">
-                    <Box display="flex" justify-content="center" alignItems="center">
-                        <img alt="profile-logo" width="100px" height="100px" src={`../../assets/thebksUser.png`} style={{ cursor: "pointer", borderRadius: "50%" }} />
-                    </Box>
-                    <Box textAlign="center">
-                        <Typography varient="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>TheBks</Typography>
-                        <Typography varient="h5" color={colors.greenAccent[500]}>CEO</Typography>
-                    </Box>
-                </Box>
-            )}
+            <ProSidebar>
+                <Menu iconShape='square'>
+                    {/* MENU ICON */}
+                    <MenuItem
+                        onClick={() => setIsCollapsed(!isCollapsed)}
+                        icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+                        style={{
+                            margin: "10px 0 20px 0",
+                            color: colors.grey[100]
+                        }}
+                    >
+                        {!isCollapsed && (
+                            <Box
+                                display="flex"
+                                justifyContent="space-between"
+                                alignItems="center"
+                                ml="15px"
+                            >
+                                <Typography varient="h3" color={colors.grey[100]}>ADMIN</Typography>
+                                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                                    <MenuOutlinedIcon />
+                                </IconButton>
+                            </Box>
+                        )}
+                    </MenuItem>
+                    {/* USER */}
+                    {!isCollapsed && (
+                        <Box mb="25px">
+                            <Box display="flex" justify-content="center" alignItems="center">
+                                <img
+                                    alt="profile-logo"
+                                    width="100px"
+                                    height="100px"
+                                    src={`../../assets/thebksUser.png`}
+                                    style={{ cursor: "pointer", borderRadius: "50%" }}
+                                />
+                            </Box>
+                            <Box textAlign="center">
+                                <Typography varient="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>TheBks</Typography>
+                                <Typography varient="h5" color={colors.greenAccent[500]}>CEO</Typography>
+                            </Box>
+                        </Box>
+                    )}
 
-            {/* MENU ITEMS */}
+                    {/* MENU ITEMS */}
+                </Menu>
+            </ProSidebar>
         </MyStyledBox>
     )
 }
@@ -55,4 +89,3 @@ const Sidebar = () => {
 export default Sidebar;
 
 
-// 1:04
