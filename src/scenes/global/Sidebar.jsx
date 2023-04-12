@@ -29,6 +29,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
             active={selected === title}
             style={{ color: colors.grey[100] }}
             onClick={() => setSelected(title)}
+            icon={icon}
         >
             <Typography>{title}</Typography>
             <Link to={to} />
@@ -61,8 +62,26 @@ const Sidebar = () => {
     });
 
     return (
-        <MyStyledBox>
-            <ProSidebar>
+        <Box
+            sx={{
+                "& .pro-sidebar-inner": {
+                    background: `${colors.primary[400]} !important`,
+                },
+                "& .pro-icon-wrapper": {
+                    backgroundColor: "transparent !important",
+                },
+                "& .pro-inner-item": {
+                    padding: "5px 35px 5px 20px !important",
+                },
+                "& .pro-inner-item:hover": {
+                    color: "#868dfb !important",
+                },
+                "& .pro-menu-item.active": {
+                    color: "#6870fa !important",
+                },
+            }}
+        >
+            <ProSidebar collapsed={isCollapsed}>
                 <Menu iconShape='square'>
                     {/* MENU ICON */}
                     <MenuItem
@@ -100,8 +119,8 @@ const Sidebar = () => {
                                 />
                             </Box>
                             <Box textAlign="center">
-                                <Typography varient="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>TheBks</Typography>
-                                <Typography varient="h5" color={colors.greenAccent[500]}>CEO</Typography>
+                                <Typography variant="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>TheBks</Typography>
+                                <Typography variant="h5" color={colors.greenAccent[500]}>CEO</Typography>
                             </Box>
                         </Box>
                     )}
@@ -212,7 +231,7 @@ const Sidebar = () => {
                     </Box>
                 </Menu>
             </ProSidebar>
-        </MyStyledBox>
+        </Box>
     )
 }
 
