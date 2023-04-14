@@ -50,6 +50,28 @@ const Team = () => {
             <Header title="TEAM" subtitle="Manage Teams here" />
             <Box m="40px 0 0 0"
                 height="75vh"
+                sx={{
+                    "& .MuiDataGrid-root": {
+                        borderName: "none",
+                    },
+                    "& .MuiDataGrid-cell": {
+                        borderBottom: "none",
+                    },
+                    "& .name-column--cell": {
+                        color: colors.greenAccent[300],
+                    },
+                    "& .MuiDataGrid-columnHeaders": {
+                        backgroundColor: colors.blueAccent[700],
+                        borderBottom: "none"
+                    },
+                    "& .MuiDataGrid-virtualScroller": {
+                        backgroundColor: colors.primary[400],
+                    },
+                    "& .MuiDataGrid-footerContainer": {
+                        borderTop: "none",
+                        backgroundColor: colors.blueAccent[700],
+                    },
+                }}
             >
                 <DataGrid checkboxSelection rows={dummyDataTeam} columns={columns} />
             </Box>
