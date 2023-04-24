@@ -2,10 +2,10 @@ import React from 'react'
 import { ResponsiveLine } from "@nivo/line";
 import { tokens } from '../themes'
 import { useTheme } from '@mui/material'
-import { dummyPieData as data } from "../data/dummyData";
+import { dummyLineData as data } from "../data/dummyData";
 
 
-const LineChart = () => {
+const LineChart = (isDashboard = false) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
@@ -45,6 +45,7 @@ const LineChart = () => {
                     },
                 },
             }}
+            colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
             xScale={{ type: 'point' }}
             yScale={{
@@ -63,16 +64,17 @@ const LineChart = () => {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
-                legend: 'transportation',
+                legend: isDashboard ? undefined : 'transportation',
                 legendOffset: 36,
                 legendPosition: 'middle'
             }}
             axisLeft={{
                 orient: 'left',
+                tickValues: 5,
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
-                legend: 'count',
+                legend: isDashboard ? undefined : 'count',
                 legendOffset: -40,
                 legendPosition: 'middle'
             }}
