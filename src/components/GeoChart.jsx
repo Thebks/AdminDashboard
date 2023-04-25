@@ -1,12 +1,12 @@
 import React from 'react'
-import { ResponsiveChoropleth } from "@nivo/line";
+import { ResponsiveChoropleth } from "@nivo/geo";
 import { tokens } from '../themes'
 import { useTheme } from '@mui/material'
 import { dummyGeographyData as data } from "../data/dummyData";
 import { geoFeatures } from '../data/dummyGeoFeatures';
 
 
-const GeoChart = (isDashboard = false) => {
+const GeoChart = ({ isDashboard = false }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
@@ -43,7 +43,6 @@ const GeoChart = (isDashboard = false) => {
             }}
             features={geoFeatures.features}
             margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
-            colors="nivo"
             domain={[0, 1000000]}
             unknownColor="#666666"
             label="properties.name"
@@ -64,14 +63,14 @@ const GeoChart = (isDashboard = false) => {
                     itemWidth: 94,
                     itemHeight: 18,
                     itemDirection: 'left-to-right',
-                    itemTextColor: '#444444',
+                    itemTextColor: colors.grey[100],
                     itemOpacity: 0.85,
                     symbolSize: 18,
                     effects: [
                         {
                             on: 'hover',
                             style: {
-                                itemTextColor: '#000000',
+                                itemTextColor: colors.grey[100],
                                 itemOpacity: 1
                             }
                         }
