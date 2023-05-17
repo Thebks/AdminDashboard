@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from '../../themes'
 import { Box, IconButton, Typography, useTheme } from '@mui/material'
-import { styled } from '@mui/system';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -43,23 +42,6 @@ const Sidebar = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [selected, setSelected] = useState("Dashboard");
 
-    const MyStyledBox = styled(Box)({
-        "& .pro-sidebar-inner": {
-            background: `${colors.primary[400]} !important`,
-        },
-        "& .pro-icon-wrapper": {
-            backgroundColor: "transparent !important",
-        },
-        "& .pro-inner-item": {
-            padding: "5px 35px 5px 20px !important",
-        },
-        "& .pro-inner-item:hover": {
-            color: "#868dfb !important",
-        },
-        "& .pro-menu-item.active": {
-            color: "#6870fa !important",
-        },
-    });
 
     return (
         <Box
@@ -109,7 +91,7 @@ const Sidebar = () => {
                     {/* USER */}
                     {!isCollapsed && (
                         <Box mb="25px">
-                            <Box display="flex" justify-content="center" alignItems="center">
+                            {/* <Box display="flex" justify-content="center" alignItems="center">
                                 <img
                                     alt="profile-logo"
                                     width="100px"
@@ -117,7 +99,7 @@ const Sidebar = () => {
                                     src={`../../assets/thebksUser.png`}
                                     style={{ cursor: "pointer", borderRadius: "50%" }}
                                 />
-                            </Box>
+                            </Box> */}
                             <Box textAlign="center">
                                 <Typography variant="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>TheBks</Typography>
                                 <Typography variant="h5" color={colors.greenAccent[500]}>CEO</Typography>

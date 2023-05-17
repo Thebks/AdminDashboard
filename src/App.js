@@ -15,7 +15,6 @@ import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 import Geo from "./scenes/geo";
 import Calendar from "./scenes/calendar";
-// import './App.css';
 
 const App = () => {
     const [colorMode, theme] = useMode();
